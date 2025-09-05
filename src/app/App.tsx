@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './styles/index.scss';
-import { HomeLazy } from './components/Home.lazy';
-import { CounterLazy } from './components/Counter.lazy';
 import { Suspense } from 'react';
 import { Link } from 'react-router-dom';
-import { Theme } from './theme/themeContext';
-import { useTheme } from './theme/useTheme';
+import { Theme } from 'shared/config/theme/themeContext';
+import { useTheme } from 'shared/hooks/theme/useTheme';
+import { Counter } from 'pages/Counter';
+import { Home } from 'pages/Home';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -17,8 +17,8 @@ const App = () => {
       <Link to="/about">About</Link>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path={'/about'} element={<CounterLazy />} />
-          <Route path={'/'} element={<HomeLazy />} />
+          <Route path={'/about'} element={<Counter />} />
+          <Route path={'/'} element={<Home />} />
         </Routes>
       </Suspense>
     </div>
