@@ -11,6 +11,3 @@ export function classNames(cls: string, mods: Mods, additional: string[]): strin
     ]
         .join(' ');
 }
-
-
-
